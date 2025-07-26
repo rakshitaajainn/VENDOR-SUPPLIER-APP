@@ -39,3 +39,13 @@ app.use('/products', require('./routes/products'));
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+// In server.js
+app.use(async (req, res, next) => {
+  if (req.session.userId) {
+    res.locals.user = await require('./models/user').findById(req.session.userId);
+  } else {
+    res.locals.user = null;
+  }
+  next();
+});
