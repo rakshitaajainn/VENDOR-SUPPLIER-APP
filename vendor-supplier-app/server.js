@@ -40,6 +40,9 @@ app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
 
+// In server.js, under the --- Routes --- section
+app.use('/orders', require('./routes/orders'));
+
 // In server.js
 app.use(async (req, res, next) => {
   if (req.session.userId) {
