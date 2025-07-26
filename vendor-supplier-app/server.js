@@ -1,4 +1,4 @@
-// server.js
+require('dotenv').config(); // Load environment variables from .env file
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -10,11 +10,11 @@ const app = express();
 const PORT = 3000;
 
 // --- Database Connection ---
-// Replace with your MongoDB connection string
-const MONGO_URI = 'mongodb://localhost:27017/vendorApp'; 
+const MONGO_URI = process.env.MONGO_URI;
 mongoose.connect(MONGO_URI)
     .then(() => console.log('MongoDB connected...'))
     .catch(err => console.log(err));
+
 
 // --- Middleware ---
 app.use(bodyParser.urlencoded({ extended: true })); // To parse form data
@@ -24,7 +24,7 @@ app.use(express.static('public')); // Serve static files like CSS
 // --- Session Management ---
 // For user login persistence
 app.use(session({
-    secret: 'a_very_secret_key_for_sessions', // Change this!
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: MONGO_URI })
@@ -34,21 +34,8 @@ app.use(session({
 // Import and use your route files
 app.use('/', require('./routes/index'));
 app.use('/products', require('./routes/products'));
-// Add other routes here later (orders, etc.)
+app.use('/order', require('./routes/order'));
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
-});
-
-// In server.js, under the --- Routes --- section
-app.use('/orders', require('./routes/orders'));
-
-// In server.js
-app.use(async (req, res, next) => {
-  if (req.session.userId) {
-    res.locals.user = await require('./models/user').findById(req.session.userId);
-  } else {
-    res.locals.user = null;
-  }
-  next();
 });
