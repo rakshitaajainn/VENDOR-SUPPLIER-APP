@@ -1,1 +1,64 @@
+<header class="bg-white shadow-sm sticky top-0 z-40">
+    <div class="px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <button id="mobileMenuButton" class="md:hidden p-2 rounded-lg bg-gray-100 text-gray-700">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="text-xl font-semibold text-gray-900">
+                <span id="pageTitle">Dashboard</span>
+                <span id="pageSubtitle" class="text-sm font-normal text-gray-500 ml-2 hidden md:inline"></span>
+            </h1>
+        </div>
+        
+        <div class="flex items-center space-x-6">
+            <div class="relative hidden md:block">
+                <button id="languageButton" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100">
+                    <i class="fas fa-globe"></i>
+                    <span>English</span>
+                    <i class="fas fa-chevron-down text-xs"></i>
+                </button>
+                <div id="languageDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 z-10 border border-gray-200">
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <i class="fas fa-language mr-2"></i> हिंदी (Hindi)
+                    </a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <i class="fas fa-language mr-2"></i> తెలుగు (Telugu)
+                    </a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <i class="fas fa-language mr-2"></i> தமிழ் (Tamil)
+                    </a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <i class="fas fa-language mr-2"></i> বাংলা (Bengali)
+                    </a>
+                </div>
+            </div>
+            
+            <button class="p-2 rounded-full hover:bg-gray-100 text-gray-700 relative">
+                <i class="fas fa-bell"></i>
+                <span class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500"></span>
+            </button>
+            
+            <div class="relative hidden md:block">
+                <button id="userMenuButton" class="flex items-center space-x-2">
+                    <img src="../assets/images/user-profile.jpg" alt="Profile picture of Rajesh Jain, supplier account" class="w-8 h-8 rounded-full object-cover border-2 border-primary-200">
+                    <span class="font-medium text-gray-700 hidden lg:inline-block">Rajesh Jain</span>
+                    <i class="fas fa-chevron-down text-xs text-gray-500 hidden lg:inline-block"></i>
+                </button>
+                
+                <div id="userDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 z-10 border border-gray-200">
+                    <a href="#profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <i class="fas fa-user mr-2"></i> Profile
+                    </a>
+                    <a href="#settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <i class="fas fa-cog mr-2"></i> Settings
+                    </a>
+                    <div class="border-t border-gray-200"></div>
+                    <a href="#logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <i class="fas fa-sign-out-alt mr-2"></i> Sign out
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
